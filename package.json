@@ -1,6 +1,6 @@
 {
   "name": "ragemp-auto-reload-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Webpack plugin that reload the RAGE MP server after compilation",
   "main": "dist/index.js",
   "keywords": [
@@ -33,7 +33,8 @@
     "build": "npm-run-all clean:dist compile:prod",
     "compile:dev": "tsc --watch",
     "compile:prod": "tsc -b",
-    "clean:dist": "rimraf dist/*"
+    "clean:dist": "rimraf dist/*",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^13.11.0",

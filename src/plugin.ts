@@ -46,14 +46,12 @@ export class RagempAutoReloadPlugin {
 
   // Webpack entry method
   apply = (compiler) => {
-    compiler.hooks.watchRun.tap('RagempAutoReloadPlugin', () => {
-      try {
-        execSync(`taskkill /T /F /IM ${this.serverProcessName}`)
-      } catch (e) {}
-    })
-
     compiler.hooks.done.tap('RagempAutoReloadPlugin', () => {
       const { serverDirectory, serverProcessName } = this
+
+      try {
+        execSync(`taskkill /T /F /IM ${this.serverProcessName}`, { stdio: 'ignore' })
+      } catch (e) {}
 
       exec(`cd ${serverDirectory} && start /MIN ${serverProcessName}`)
     })
