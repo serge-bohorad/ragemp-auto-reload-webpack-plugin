@@ -1,0 +1,45 @@
+{
+  "name": "ragemp-auto-reload-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Webpack plugin that reload the RAGE MP server after compilation",
+  "main": "dist/index.js",
+  "keywords": [
+    "rage",
+    "multiplayer",
+    "mp",
+    "ragemp",
+    "webpack",
+    "webpack-plugin",
+    "plugin",
+    "restart",
+    "rage-server",
+    "reload",
+    "auto-reload",
+    "live-reload"
+  ],
+  "files": [
+    "dist"
+  ],
+  "repository": "git@github.com:iRandell/ragemp-auto-reload-webpack-plugin.git",
+  "homepage": "https://github.com/iRandell/ragemp-auto-reload-webpack-plugin",
+  "bugs": {
+    "url": "https://github.com/iRandell/ragemp-auto-reload-webpack-plugin/issues"
+  },
+  "types": "dist/index.d.ts",
+  "author": "Randell Hart (irandellhart@gmail.com)",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm-run-all clean:dist compile:dev",
+    "build": "npm-run-all clean:dist compile:prod",
+    "compile:dev": "tsc --watch",
+    "compile:prod": "tsc -b",
+    "clean:dist": "rimraf dist/*"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.0",
+    "tslib": "^1.11.1",
+    "typescript": "^3.7.5"
+  }
+}
